@@ -51,18 +51,18 @@ public class DrawDemo
     {
         Pen pen = new Pen(250, 100, myCanvas);
         pen.setColor(Color.GREEN);
-        
+
         pentagon(pen);
     }
-    
+
     public void drawPolygon(int n)
     {
         Pen pen = new Pen(250, 100, myCanvas);
         pen.setColor(Color.GREEN);
-        
+
         polygon(pen, n);
     }
-    
+
     /**
      * Draw a wheel made of many squares.
      */
@@ -76,7 +76,15 @@ public class DrawDemo
             pen.turn(10);
         }
     }
-
+    
+    public void drawSpiral()
+    {
+        Pen pen = new Pen(300, 200, myCanvas);
+        pen.setColor(Color.RED);
+        
+        spiral(pen);
+    }
+    
     /**
      * Draw a square in the pen's color at the pen's location.
      */
@@ -108,18 +116,26 @@ public class DrawDemo
             pen.turn(72);
         }
     }
-    
+
     private void polygon(Pen pen, int n)
     {
         if(n>2){
-        for (int i=0; i<n; i++){
-            pen.move(100);
-            pen.turn(360/n);
+            for (int i=0; i<n; i++){
+                pen.move(100);
+                pen.turn(360/n);
+            }
         }
+        else{
+            System.out.println("Un polígono es un cuerpo geométrico compuesto por al menos tres lados, n debe ser mayor que dos.");
+        }    
     }
-    else{
-        System.out.println("Un polígono es un cuerpo geométrico compuesto por al menos tres lados, n debe ser mayor que dos.");
-    }    
+    
+    private void spiral(Pen pen)
+    {
+        for (int i=5; i<50; i++){
+            pen.move(i*2);
+            pen.turn(90);
+        }
     }
     
     /**
