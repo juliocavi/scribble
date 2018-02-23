@@ -55,6 +55,14 @@ public class DrawDemo
         pentagon(pen);
     }
     
+    public void drawPolygon(int n)
+    {
+        Pen pen = new Pen(250, 100, myCanvas);
+        pen.setColor(Color.GREEN);
+        
+        polygon(pen, n);
+    }
+    
     /**
      * Draw a wheel made of many squares.
      */
@@ -99,6 +107,19 @@ public class DrawDemo
             pen.move(100);
             pen.turn(72);
         }
+    }
+    
+    private void polygon(Pen pen, int n)
+    {
+        if(n>2){
+        for (int i=0; i<n; i++){
+            pen.move(100);
+            pen.turn(360/n);
+        }
+    }
+    else{
+        System.out.println("Un polígono es un cuerpo geométrico compuesto por al menos tres lados, n debe ser mayor que dos.");
+    }    
     }
     
     /**
